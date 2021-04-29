@@ -43,7 +43,6 @@ class LoginScreenUser extends StatelessWidget {
 }
 
 Widget _usuario(LoginBloc bloc) {
-
   return StreamBuilder(
     stream: bloc.emailStream,
     builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -66,7 +65,7 @@ Widget _usuario(LoginBloc bloc) {
                   color: Colors.grey.shade400,
                   fontSize: 21,
                   fontWeight: FontWeight.bold)),
-                  onChanged: (value) => bloc.changeEmail(value),
+          onChanged: (value) => bloc.changeEmail(value),
         ),
       );
     },
@@ -74,7 +73,6 @@ Widget _usuario(LoginBloc bloc) {
 }
 
 Widget _correo(LoginBloc bloc) {
-
   return StreamBuilder(
     stream: bloc.emailStream,
     builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -97,48 +95,43 @@ Widget _correo(LoginBloc bloc) {
                   color: Colors.grey.shade400,
                   fontSize: 21,
                   fontWeight: FontWeight.bold)),
-                  onChanged: (value) => bloc.changeEmail(value),
+          onChanged: (value) => bloc.changeEmail(value),
         ),
       );
     },
   );
 }
 
-
-Widget _passWord(LoginBloc bloc)
-{
+Widget _passWord(LoginBloc bloc) {
   return StreamBuilder(
-    stream: bloc.passwordStream ,
-    builder: (BuildContext context, AsyncSnapshot snapshot){
+    stream: bloc.passwordStream,
+    builder: (BuildContext context, AsyncSnapshot snapshot) {
       return Container(
-      height: 75,
-      padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
-      child: TextField(
-        scrollPadding: EdgeInsets.only(bottom: 15),
-        autocorrect: false,
-        obscureText: true,
-        textAlign: TextAlign.center,
-        decoration: InputDecoration(
-            focusColor: Colors.blue,
-            fillColor: Colors.grey.shade300,
-            filled: true,
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
-            hintText: 'Contraseña',
-            hintStyle: TextStyle(
-                color: Colors.grey.shade400,
-                fontSize: 21,
-                fontWeight: FontWeight.bold)),
-      ),
-    );
-
+        height: 75,
+        padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+        child: TextField(
+          scrollPadding: EdgeInsets.only(bottom: 15),
+          autocorrect: false,
+          obscureText: true,
+          textAlign: TextAlign.center,
+          decoration: InputDecoration(
+              focusColor: Colors.blue,
+              fillColor: Colors.grey.shade300,
+              filled: true,
+              border:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+              hintText: 'Contraseña',
+              hintStyle: TextStyle(
+                  color: Colors.grey.shade400,
+                  fontSize: 21,
+                  fontWeight: FontWeight.bold)),
+        ),
+      );
     },
   );
+}
 
-
-    
-  }
-
-  class Logo extends StatelessWidget {
+class Logo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -167,7 +160,7 @@ class _logupButton extends StatelessWidget {
           style: ElevatedButton.styleFrom(
               shape: StadiumBorder(),
               textStyle: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-          onPressed: (){}),
+          onPressed: () {}),
     );
   }
 }
