@@ -32,6 +32,12 @@ dependencies:
   http: ^0.13.1
   rxdart: ^0.22.0
   
+  #Agregue upload file to firebase
+  firebase_core: ^1.0.3
+  firebase_storage: ^8.0.5
+
+  #Agregue pick file
+  file_picker: ^3.0.1
 
 dev_dependencies:
   flutter_test:
