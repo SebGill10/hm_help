@@ -59,4 +59,12 @@ class PreferenciasUsuario {
   set imageUsuario(String value) {
     _prefs!.setString('image', value);
   }
+
+  String get cvUsuario {
+    return _prefs!.getString('cvUsuario') ?? '';
+  }
+
+  set cvUsuario(String value) {
+    _prefs!.setString('cvUsuario', value);
+  }
 }

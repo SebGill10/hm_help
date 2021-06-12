@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../bloc_files/contratista_bloc.dart';
+import 'bloc_files/contratista_bloc.dart';
 
 class ProviderContratista extends InheritedWidget {
   final contratistaBloc = ContratistaBloc();

@@ -1,37 +1,11 @@
 import 'dart:io';
 import 'package:file_picker/file_picker.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:hm_help/src/pages/pdf_Widget.dart';
+import 'package:hm_help/src/preferencias_usuario/preferencias_usuario.dart';
 import 'package:path/path.dart';
 import '../provider/firebase_Api.dart';
-
-Future main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
-
-  await Firebase.initializeApp();
-
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  static final String title = 'Hoja de Vida';
-
-  @override
-  Widget build(BuildContext context) => MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: title,
-        color: Colors.black,
-        theme: ThemeData(primaryColor: Colors.blue),
-        home: PdfContratistaPage(),
-      );
-}
 
 class PdfContratistaPage extends StatefulWidget {
   @override
@@ -95,6 +69,7 @@ class _PdfContratistaPageState extends State<PdfContratistaPage> {
   }
 
   Future uploadFile() async {
+    final _preferenciasUsuario = PreferenciasUsuario();
     if (file == null) return;
 
     final fileName = basename(file!.path);
@@ -109,6 +84,8 @@ class _PdfContratistaPageState extends State<PdfContratistaPage> {
     final urlDownload = await snapshot.ref.getDownloadURL();
 
     print('Download-Link: $urlDownload');
+
+    _preferenciasUsuario.cvUsuario = urlDownload;
   }
 
   Widget buildUploadStatus(UploadTask task) => StreamBuilder<TaskSnapshot>(

@@ -10,7 +10,6 @@ class ContratistaBloc with Validator {
   final _fechaController = BehaviorSubject<String>();
   final _generoController = BehaviorSubject<String>();
 
-//Recuperar los datos del Stream
   Stream<String> get nombreStream => _nombreController.stream;
   Stream<String> get apellidoStram => _apellidoController.stream;
   Stream<String> get correoStream =>
@@ -23,7 +22,6 @@ class ContratistaBloc with Validator {
   Stream<bool> get formValidStream =>
       Rx.combineLatest2(correoStream, contrasenaStream, (c, p) => true);
 
-//Insertar valores al Stream
   Function(String) get changeNombre => _nombreController.sink.add;
   Function(String) get changeApellido => _apellidoController.sink.add;
   Function(String) get changeCorreo => _correoController.sink.add;
@@ -32,7 +30,7 @@ class ContratistaBloc with Validator {
   Function(String) get changeGenero => _generoController.sink.add;
 
   String? get nombre => _nombreController.value;
-  String? get apllido => _apellidoController.value;
+  String? get apellido => _apellidoController.value;
   String? get correo => _correoController.value;
   String? get contra => _contrasenaController.value;
   String? get fecha => _fechaController.value;
